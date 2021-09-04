@@ -8,6 +8,7 @@
     <title>Mind money</title>
 </head>
 <body>
+{{ auth()->check() }}
     <h1>Думай о деньгах</h1>
 </body>
 </html>
