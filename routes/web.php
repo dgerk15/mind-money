@@ -19,3 +19,7 @@ Route::get('/', function () {
 
 Route::get('/register', [UserController::class, 'create'])->name('user.create');
 Route::post('/register', [UserController::class, 'store'])->name('user.store');
+
+Route::get('/login', [UserController::class, 'loginForm'])->name('user.loginForm');
+Route::post('/login', [UserController::class, 'login'])->name('user.login');
+Route::get('/logout', [UserController::class, 'logout'])->name('user.logout');
