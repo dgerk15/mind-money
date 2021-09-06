@@ -85,4 +85,17 @@ class UserController extends Controller
 
         return redirect()->route('user.loginForm');
     }
+
+    public function profile()
+    {
+        return view('user.profile');
+    }
+    public function groups()
+    {
+        return view('user.groups');
+    }
+    public function settings()
+    {
+        return view('user.settings');
+    }
 }
