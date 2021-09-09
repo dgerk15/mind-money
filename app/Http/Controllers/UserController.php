@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\UserSetting;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -38,6 +39,10 @@ class UserController extends Controller
             'surname' => $request->surname,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+        ]);
+
+        UserSetting::create([
+           'user_id' => $user->id
         ]);
 
         session()->flash('success', 'Успешная регистрация');
@@ -93,9 +98,5 @@ class UserController extends Controller
     public function groups()
     {
         return view('user.groups');
-    }
-    public function settings()
-    {
-        return view('user.settings');
     }
 }

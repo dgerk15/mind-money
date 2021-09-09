@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserSettingController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,5 +33,5 @@ Route::group(['middleware' => 'auth', 'prefix' => 'my'], function () {
 
    Route::get('/groups', [UserController::class, 'groups'])->name('user.groups');
 
-   Route::get('/settings', [UserController::class, 'settings'])->name('user.settings');
+   Route::resource('/settings', UserSettingController::class);
 });
