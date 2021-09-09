@@ -20,7 +20,9 @@ class UserSettingController extends Controller
             ->where(['user_id' => Auth::user()->id])
             ->first();
 
-        return view('user_setting.index', compact('settings'));
+        $chart_types = UserSetting::CHART_TYPES;
+
+        return view('user_setting.index', compact('settings', 'chart_types'));
     }
 
 //    /**

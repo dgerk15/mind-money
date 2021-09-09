@@ -17,8 +17,9 @@
             <div class="form-group">
                 <label for="chart_type">chart_type</label>
                 <select class="form-control" name="chart_type" id="chart_type">
-                    <option value="pie" @if ($settings->chart_type == 'pie') selected="selected" @endif>pie</option>
-                    <option value="column" @if ($settings->chart_type == 'column') selected="selected" @endif>column</option>
+                    @foreach($chart_types as $chart_type)
+                        <option value="{{ $chart_type }}" @if ($settings->chart_type == $chart_type) selected="selected" @endif>{{ $chart_type }}</option>
+                    @endforeach
                 </select>
             </div>
 
@@ -41,6 +42,15 @@
                        name="use_system_category"
                        @if ($settings->use_system_category) checked @endif
                        value="1">
+            </div>
+
+            <div class="form-group">
+                <label for="currency">currency</label>
+                <input type="text"
+                       class="form-control"
+                       id="currency"
+                       name="currency"
+                       value="{{ $settings->currency }}">
             </div>
 
             <button type="submit" class="btn btn-primary">Save</button>

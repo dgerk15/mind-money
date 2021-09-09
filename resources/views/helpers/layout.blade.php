@@ -55,7 +55,7 @@
                 @endif--}}
 
                 @auth
-                    <a href="#">
+                    <a href="{{ route('user.profile') }}">
                         {{ auth()->user()->name }}
                         @if (auth()->user()->avatar)
                             <img src="{{ asset('storage/' . auth()->user()->avatar) }}" alt="" height="40">
