@@ -7,44 +7,121 @@
 @endsection
 
 @section('content')
-    <section class="jumbotron text-center">
+    <div class="row">
         <div class="container">
-{{--            <h1>{{ $title }}</h1>--}}
-        </div>
-    </section>
+            @auth
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td colspan="2">Larry the Bird</td>
+                        <td>@twitter</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td colspan="2">Larry the Bird</td>
+                        <td>@twitter</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td colspan="2">Larry the Bird</td>
+                        <td>@twitter</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td colspan="2">Larry the Bird</td>
+                        <td>@twitter</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td colspan="2">Larry the Bird</td>
+                        <td>@twitter</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td colspan="2">Larry the Bird</td>
+                        <td>@twitter</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td colspan="2">Larry the Bird</td>
+                        <td>@twitter</td>
+                    </tr>
+                    </tbody>
+                </table>
+            @endauth
 
-    <div class="album py-5 bg-light">
-        <div class="container">
-
-            <div class="row">
-{{--                @foreach($posts as $post)--}}
-{{--                    <div class="col-md-4">--}}
-{{--                        <div class="card mb-4 shadow-sm">--}}
-{{--                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>--}}
-{{--                            <div class="card-body">--}}
-{{--                                <h5 class="card-title">{{ $post->title }}</h5>--}}
-{{--                                <p class="card-text">{{ $post->content }}</p>--}}
-{{--                                <div class="d-flex justify-content-between align-items-center">--}}
-{{--                                    <div class="btn-group">--}}
-{{--                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>--}}
-{{--                                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>--}}
-{{--                                    </div>--}}
-{{--                                    <small class="text-muted">--}}
-{{--                                        --}}{{-- $post->created_at --}}
-{{--                                        --}}{{-- \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $post->created_at)->format('d M Y') --}}
-{{--                                        --}}{{-- $post->getPostDate() --}}
-{{--                                        {{ $post->created_at->format('d.m.Y') }}--}}
-{{--                                    </small>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                @endforeach--}}
-
-{{--                <div class="col-md-12">--}}
-{{--                    {{ $posts->onEachSide(3)->links() }}--}}
-{{--                </div>--}}
-            </div>
+            @guest
+                <div class="justify-content-evenly">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ad adipisci blanditiis dolor dolore
+                    doloremque laborum, modi nam non omnis, porro quae quis ratione repellendus repudiandae sint sit
+                    ullam vero, vitae voluptates. A ab adipisci animi aperiam asperiores aspernatur consequatur culpa,
+                    cum dignissimos doloremque ea earum eum expedita harum illo illum in incidunt ipsum maiores mollitia
+                    omnis perspiciatis placeat provident quae quaerat quibusdam quidem quisquam quo quod rem repellat
+                    repudiandae saepe soluta velit voluptas voluptatem voluptatum? Consectetur consequuntur culpa dicta
+                    exercitationem inventore labore, mollitia possimus tempore! Blanditiis corporis dolore earum esse
+                    expedita mollitia nihil saepe? Atque dignissimos dolores eaque exercitationem illum mollitia
+                    officiis, quia quidem repellendus rerum unde, ut! Aperiam earum hic in officiis provident quam quos
+                    voluptas. Consectetur corporis culpa cumque, dicta distinctio eum facere hic illum iste minus nobis
+                    nulla officia placeat porro qui quisquam repudiandae, ullam, veniam veritatis voluptatem. Aut,
+                    consequatur est! Animi at beatae consequatur, deserunt ducimus eveniet harum ipsa iusto magni,
+                    minima non, numquam omnis quasi recusandae voluptatem! Ad amet aperiam asperiores assumenda atque
+                    cupiditate debitis delectus earum, eius expedita facilis hic ipsum iure nam necessitatibus nulla,
+                    obcaecati, perferendis possimus quaerat recusandae sapiente sunt veritatis vitae voluptas
+                    voluptatibus. Aperiam asperiores, cupiditate doloribus eius enim hic saepe totam voluptatem. Alias
+                    eos perspiciatis quisquam voluptatum. Ab animi commodi debitis dolorem doloremque eaque, error
+                    itaque minima necessitatibus odit, quo sit, veniam voluptatem! Dicta dolorum eveniet fugiat impedit,
+                    iusto laudantium perferendis praesentium recusandae repudiandae tempora unde vel voluptatum. A
+                    accusantium ad culpa debitis dolor fuga laudantium maiores minima, pariatur quaerat quam qui quis
+                    quo reprehenderit rerum saepe tenetur. Accusamus adipisci assumenda atque aut autem, cupiditate
+                    dolorem dolorum enim error eveniet expedita hic inventore laudantium necessitatibus nesciunt nobis
+                    odio optio praesentium quaerat quia similique temporibus unde vel. Aperiam cupiditate dolore dolores
+                    doloribus excepturi expedita, ipsam maxime suscipit. Adipisci cum distinctio doloribus et impedit
+                    laboriosam magnam magni, mollitia. Animi corporis culpa cupiditate dignissimos earum error esse,
+                    ipsa magni minus nobis quam qui sapiente sequi soluta sunt tempore veniam voluptate voluptates!
+                    Aliquid autem corporis cupiditate eligendi fuga in, maiores non odio omnis, sunt vel, vitae?
+                    Accusantium asperiores aspernatur beatae, cum distinctio dolores eaque excepturi fuga hic illum
+                    ipsum laudantium molestiae natus necessitatibus nemo neque nihil non placeat praesentium quo ratione
+                    recusandae repellat repellendus reprehenderit rerum tempore veritatis vero voluptate voluptates
+                    voluptatibus. Deserunt iure nisi quas? Assumenda consectetur delectus, deleniti earum eius enim et,
+                    eveniet ex excepturi exercitationem inventore iusto laboriosam laudantium numquam officia omnis
+                    optio quaerat quisquam quod quos repellat sapiente temporibus! Ab aliquid animi aperiam atque beatae
+                    culpa cum cumque deserunt dicta dolore esse eum facilis illo incidunt ipsa ipsam laboriosam
+                    laudantium magni officiis placeat possimus, praesentium quae quas quasi qui quisquam rem repudiandae
+                    rerum sapiente sed totam, unde ut vel velit vero vitae voluptate! Beatae ex molestias saepe sit ut?
+                    Doloremque explicabo maiores, molestiae nam nemo obcaecati quod sequi soluta tempore vel veniam vero
+                    voluptatem! Accusamus aliquam dolorum ea facere labore officia optio perferendis perspiciatis qui
+                    reprehenderit soluta tenetur veniam, voluptate. Consequatur cum, cupiditate deserunt dignissimos
+                    dolores dolorum eveniet harum, inventore itaque laudantium nostrum obcaecati omnis quasi similique,
+                    sint temporibus ut vero. Ab, accusamus commodi eum fuga id, laborum magni officia pariatur
+                    perspiciatis quia quo soluta sunt ut? Dolores eaque esse facere ipsum laboriosam quis recusandae
+                    repellat totam. Alias animi aut distinctio doloremque doloribus harum, modi porro! Accusantium
+                    dolorum inventore modi nostrum odit sit voluptas! Adipisci aliquid amet atque cupiditate dolore,
+                    expedita harum illo impedit ipsum minus nesciunt obcaecati porro praesentium reprehenderit, rerum
+                    saepe sequi soluta tempore ullam voluptatum! Ab accusantium asperiores commodi culpa dolor
+                    doloremque esse et impedit ipsam quam quas reiciendis, sequi tempore veritatis voluptatibus. Libero
+                    sunt, ut!
+                </div>
+            @endguest
         </div>
     </div>
 @endsection

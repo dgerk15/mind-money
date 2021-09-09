@@ -13,37 +13,37 @@
 
             @csrf
 
-            <div class="form-group">
-                <label for="name">Name</label>
+            <div class="mb-3">
+                <label for="name">Имя</label>
                 <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}">
             </div>
 
-            <div class="form-group">
-                <label for="surname">Surname</label>
+            <div class="mb-3">
+                <label for="surname">Фамилия</label>
                 <input type="text" class="form-control" id="surname" name="surname" value="{{ old('surname') }}">
             </div>
 
-            <div class="form-group">
+            <div class="mb-3">
                 <label for="email">Email</label>
                 <input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}">
             </div>
 
-            <div class="form-group">
-                <label for="password">Password</label>
+            <div class="mb-3">
+                <label for="password">Пароль</label>
                 <input type="password" class="form-control" id="password" name="password">
             </div>
 
-            <div class="form-group">
-                <label for="password_confirmation">Confirm Password</label>
+            <div class="mb-3">
+                <label for="password_confirmation">Подтвердить пароль</label>
                 <input type="password" class="form-control" id="password_confirmation" name="password_confirmation">
             </div>
 
-            <div class="form-group">
-                <label for="avatar">Avatar</label>
-                <input type="file" class="form-control-file" id="avatar" name="avatar">
+            <div class="mb-3">
+                <label for="avatar" class="form-label">Фото</label>
+                <input class="form-control" type="file" name="avatar" id="avatar">
             </div>
 
-            <button type="submit" class="btn btn-primary">Send</button>
+            <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
 
         </form>
 

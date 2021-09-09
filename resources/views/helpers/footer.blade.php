@@ -1,17 +1,22 @@
-<footer class="text-muted">
-    <div class="container">
-        <p class="float-right">
-            <a href="#">Back to top</a>
-        </p>
-        <p>&copy; {{ date('Y') }}</p>
-        <p>New to Bootstrap? <a href="https://getbootstrap.com/">Visit the homepage</a> or read our <a
-                href="/docs/4.5/getting-started/introduction/">getting started guide</a>.</p>
-
-{{--        <ul>--}}
-{{--            @foreach($rubrics as $rubric)--}}
-{{--                <li><a href="#">{{ $rubric->title }}</a></li>--}}
-{{--            @endforeach--}}
-{{--        </ul>--}}
-
+<footer class="pt-4 my-md-5 pt-md-5 border-top">
+    <div class="row">
+        <div class="col-6 col-md">
+            <h5>Features</h5>
+            <ul class="list-unstyled text-small">
+                <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Cool stuff</a></li>
+            </ul>
+        </div>
+        <div class="col-6 col-md">
+            <h5>Resources</h5>
+            <ul class="list-unstyled text-small">
+                <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Resource</a></li>
+            </ul>
+        </div>
+        <div class="col-6 col-md">
+            <h5>About</h5>
+            <ul class="list-unstyled text-small">
+                <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Team</a></li>
+            </ul>
+        </div>
     </div>
 </footer>
