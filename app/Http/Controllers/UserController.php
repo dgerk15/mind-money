@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -32,14 +33,15 @@ class UserController extends Controller
             'surname' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|confirmed',
+            'photo' => 'nullable|image',
         ]);
 
-        $user = User::create([
-            'name' => $request->name,
-            'surname' => $request->surname,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
+        $data = $request->all();
+
+        $data['password'] = Hash::make($request->password);
+        $data['photo'] = User::uploadImage($request);
+
+        $user = User::create($data);
 
         UserSetting::create([
            'user_id' => $user->id
@@ -77,7 +79,7 @@ class UserController extends Controller
             return redirect()->home()->with('success', 'Добро пожаловать');
         }
 
-        return redirect()->back()->with('error', 'Неворный логин или пароль');
+        return redirect()->back()->with('error', 'Неверный логин или пароль');
     }
 
     /**
@@ -93,10 +95,29 @@ class UserController extends Controller
 
     public function profile()
     {
-        return view('user.profile');
+        $user = Auth::user();
+
+        if ($user) {
+            return view('user.profile', compact('user'));
+        }
+        return redirect()->route('user.loginForm');
     }
-    public function groups()
+    public function profileEdit(Request $request)
     {
-        return view('user.groups');
+        $request->validate([
+            'name' => 'required',
+            'surname' => 'required',
+            'email' => 'required|email',
+            'photo' => 'nullable|image',
+        ]);
+
+        $user = User::find($request->user_id);
+
+        $data = $request->all();
+        $data['photo'] = User::uploadImage($request, $user->photo);
+
+        $user->update($data);
+
+        return redirect()->route('user.profile');
     }
 }

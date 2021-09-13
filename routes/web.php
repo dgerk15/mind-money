@@ -30,6 +30,7 @@ Route::get('/logout', [UserController::class, 'logout'])->name('user.logout')->m
 
 Route::group(['middleware' => 'auth', 'prefix' => 'my'], function () {
    Route::get('/', [UserController::class, 'profile'])->name('user.profile');
+   Route::post('/{user_id}', [UserController::class, 'profileEdit'])->name('user.profileEdit');
 
    Route::get('/groups', [UserController::class, 'groups'])->name('user.groups');
 
