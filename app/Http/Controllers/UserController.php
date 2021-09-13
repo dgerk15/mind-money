@@ -111,10 +111,12 @@ class UserController extends Controller
             'photo' => 'nullable|image',
         ]);
 
-        $user = User::find($request->user_id);
+        $user = Auth::user();
 
         $data = $request->all();
-        $data['photo'] = User::uploadImage($request, $user->photo);
+        if ($request->photo) {
+            $data['photo'] = User::uploadImage($request, $user->photo);
+        }
 
         $user->update($data);
 

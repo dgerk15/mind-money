@@ -9,7 +9,7 @@
 @section('content')
     <div class="container">
         <h1>Профиль</h1>
-        <form method="post" action="{{ route('user.profileEdit', ['user_id' => $user->id ]) }}" enctype="multipart/form-data">
+        <form method="post" action="{{ route('user.profileEdit') }}" enctype="multipart/form-data">
             @csrf
 
             <div class="mb-3">
