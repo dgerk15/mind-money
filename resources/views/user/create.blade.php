@@ -39,8 +39,8 @@
             </div>
 
             <div class="mb-3">
-                <label for="avatar" class="form-label">Фото</label>
-                <input class="form-control" type="file" name="avatar" id="avatar">
+                <label for="photo" class="form-label">Фото</label>
+                <input class="form-control" type="file" name="photo" id="photo">
             </div>
 
             <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
