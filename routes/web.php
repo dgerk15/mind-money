@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserSettingController;
@@ -32,7 +33,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'my'], function () {
    Route::get('/', [UserController::class, 'profile'])->name('user.profile');
    Route::post('/', [UserController::class, 'profileEdit'])->name('user.profileEdit');
 
-   Route::get('/groups', [UserController::class, 'groups'])->name('user.groups');
+   Route::resource('/categories', CategoryController::class);
 
    Route::resource('/settings', UserSettingController::class);
 });

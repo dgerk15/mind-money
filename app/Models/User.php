@@ -63,4 +63,14 @@ class User extends Authenticatable
     {
         return $this->photo ? asset('uploads/' . $this->photo) : asset('img/noimage.png');
     }
+
+    public function categories()
+    {
+        return $this->hasMany(Category::class);
+    }
+
+    public function setting()
+    {
+        return $this->hasOne(UserSetting::class);
+    }
 }

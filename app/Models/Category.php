@@ -4,20 +4,27 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
 
-class UserSetting extends Model
+class Category extends Model
 {
     use HasFactory;
-
-    public const CHART_TYPES = ['pie', 'column'];
+    use Sluggable;
 
     protected $fillable = [
+        'title',
+        'alias',
         'user_id',
-        'chart_type',
-        'use_rounding',
-        'use_system_category',
-        'currency',
     ];
+
+    public function sluggable(): array
+    {
+        return [
+            'alias' => [
+                'source' => 'title'
+            ]
+        ];
+    }
 
     public function user()
     {
