@@ -30,4 +30,9 @@ class Category extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function finanses()
+    {
+        return $this->hasMany(FinancialRecord::class);
+    }
 }

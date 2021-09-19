@@ -73,4 +73,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(UserSetting::class);
     }
+
+    public function finanses()
+    {
+        return $this->hasMany(FinancialRecord::class);
+    }
 }
