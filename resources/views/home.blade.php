@@ -10,65 +10,43 @@
     <div class="row">
         <div class="container">
             @auth
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
-                    </tbody>
-                </table>
+                @if (count($finances))
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Название</th>
+                            <th scope="col">Категория</th>
+                            <th scope="col">Тип</th>
+                            <th scope="col">Цена</th>
+                            <th scope="col">Дата</th>
+                            <th scope="col">Комментарий</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($finances as $finance)
+                            <tr>
+                                <td>{{ $finance->title }}</td>
+                                <td>{{ $finance->category->title }}</td>
+                                <td>{{ $finance->type }}</td>
+                                <td>{{ $finance->cost }}</td>
+                                <td>{{ $finance->getRecordDate() }}</td>
+                                <td>
+                                <span class="area-body">
+                                    {{ $finance->description }}
+                                </span>
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                @else
+                    <div class="mt-3 mb-3">
+                        Тут еще ничего нет
+                    </div>
+                @endif
+
+                    <a href="{{ route('finance.create') }}" class="btn btn-outline-primary">Расход</a>
+                    <a href="{{ route('finance.create', ['type' => 'income']) }}" class="btn btn-outline-primary">Доход</a>
             @endauth
 
             @guest

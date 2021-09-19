@@ -31,7 +31,7 @@ class Category extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function finanses()
+    public function finances()
     {
         return $this->hasMany(FinancialRecord::class);
     }

@@ -11,6 +11,9 @@
         <form method="post" action="{{ route('finance.store') }}">
             @csrf
 
+            <input type="hidden" name="type" value="{{ $type }}">
+
+            {{var_dump( $type)}}
             <div class="form-floating mb-3">
                 <input type="text" class="form-control @error('title') is-invalid @enderror" placeholder="Название" id="title" name="title">
                 <label for="title">Название</label>
@@ -23,14 +26,6 @@
                     @endforeach
                 </select>
                 <label for="category_id">Выберите категорию</label>
-            </div>
-
-            <div class="form-floating mb-3">
-                <select class="form-select" id="type" name="type" aria-label="Floating label select example">
-                    <option value="expense">Расход</option>
-                    <option value="income">Доход</option>
-                </select>
-                <label for="type">Расход или доход</label>
             </div>
 
             <div class="form-floating mb-3">

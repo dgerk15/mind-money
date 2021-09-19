@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Http\Request;
 use Illuminate\Notifications\Notifiable;
@@ -59,22 +60,22 @@ class User extends Authenticatable
         return null;
     }
 
-    public function getImage()
+    public function getImage(): string
     {
         return $this->photo ? asset('uploads/' . $this->photo) : asset('img/noimage.png');
     }
 
-    public function categories()
+    public function categories(): HasMany
     {
         return $this->hasMany(Category::class);
     }
 
-    public function setting()
+    public function setting(): HasOne
     {
         return $this->hasOne(UserSetting::class);
     }
 
-    public function finanses()
+    public function finances(): HasMany
     {
         return $this->hasMany(FinancialRecord::class);
     }
