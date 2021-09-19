@@ -20,6 +20,7 @@ class CreateFinancialRecordsTable extends Migration
             $table->text('description')->nullable();
             $table->integer('user_id')->unsigned();
             $table->integer('category_id')->unsigned();
+            $table->integer('cost')->nullable(false);
             $table->enum('type', ['expense', 'income'])->default('expense');
             $table->timestamps();
         });

@@ -17,6 +17,7 @@
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="{{ route('user.profile') }}">Профиль</a></li>
                                 <li><a class="dropdown-item" href="{{ route('categories.index') }}">Категории</a></li>
+                                <li><a class="dropdown-item" href="{{ route('finance.index') }}">Расходы/доходы</a></li>
                                 <li><a class="dropdown-item" href="{{ route('settings.index') }}">Настройки</a></li>
                                 <li>
                                     <hr class="dropdown-divider">

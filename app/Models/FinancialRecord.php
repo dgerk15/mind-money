@@ -2,9 +2,11 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Jenssegers\Date\Date;
 
 class FinancialRecord extends Model
 {
@@ -17,6 +19,7 @@ class FinancialRecord extends Model
         'user_id',
         'category_id',
         'type',
+        'cost',
     ];
 
     public function sluggable(): array
@@ -36,5 +39,10 @@ class FinancialRecord extends Model
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function getRecordDate()
+    {
+        return Date::parse($this->created_at)->format('j F Y');
     }
 }
