@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\FinancialRecordController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserSettingController;
@@ -28,6 +29,7 @@ Route::group(['middleware' => 'guest'], function () {
 });
 
 Route::get('/logout', [UserController::class, 'logout'])->name('user.logout')->middleware('auth');
+Route::resource('/finance', FinancialRecordController::class)->middleware('auth');
 
 Route::group(['middleware' => 'auth', 'prefix' => 'my'], function () {
    Route::get('/', [UserController::class, 'profile'])->name('user.profile');
