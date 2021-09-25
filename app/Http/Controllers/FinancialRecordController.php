@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\FinancialRecord;
+use Carbon\Carbon;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -17,13 +18,16 @@ class FinancialRecordController extends Controller
      *
      * @return Application|Factory|View
      */
-    public function index()
+    public function index(Request $request)
     {
         $user_id =Auth::user()->id;
-        $finances = FinancialRecord::all()
-            ->where('user_id', $user_id)
-            ->where('created_at', '>=', \Carbon\Carbon::now()->startOfMonth())
-            ->sortByDesc('created_at');
+
+        $start_at = isset($request->start_at) ? Carbon::create($request->start_at) : Carbon::now()->startOfMonth();
+        $end_at = isset($request->end_at) ? Carbon::create($request->end_at) : Carbon::now()->endOfMonth();
+
+        $finances = FinancialRecord::where('user_id', $user_id)
+            ->whereBetween('created_at', [$start_at, $end_at])
+            ->get();
 
         return view('finance.index', compact('finances'));
     }
@@ -119,5 +123,10 @@ class FinancialRecordController extends Controller
         $finance->delete();
 
         return redirect()->route('finance.index')->with('success', 'Запись удалена');
+    }
+
+    public function getFromPeriod(Request $request)
+    {
+        dd($request->all());
     }
 }

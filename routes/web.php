@@ -28,7 +28,11 @@ Route::group(['middleware' => 'guest'], function () {
 });
 
 Route::get('/logout', [UserController::class, 'logout'])->name('user.logout')->middleware('auth');
-Route::resource('/finance', FinancialRecordController::class)->middleware('auth');
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::resource('/finance', FinancialRecordController::class);
+//    Route::get('/finance', [FinancialRecordController::class, 'getFromPeriod'])->name('financeGetFromPeriod');
+});
 
 Route::group(['middleware' => 'auth', 'prefix' => 'my'], function () {
    Route::get('/', [UserController::class, 'profile'])->name('user.profile');

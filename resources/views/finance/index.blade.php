@@ -4,9 +4,24 @@
     @parent
 @endsection
 
+@section('styles')
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-datepicker3.min.css') }}">
+@endsection
+
 @section('content')
     <div class="row">
         <div class="container">
+            <form action="{{route('finance.index')}}" method="GET">
+                <div class="col-5 mb-3">
+                    <div class="input-daterange input-group pt-5" id="datepicker">
+                        <span class="input-group-text" id="addon-wrapping">с</span>
+                        <input type="text" class="input-sm form-control" name="start_at" />
+                        <span class="input-group-text">по</span>
+                        <input type="text" class="input-sm form-control" name="end_at" />
+                    </div>
+                </div>
+                <button class="btn btn-outline-primary">Выбрать</button>
+            </form>
             @if (count($finances))
                 <table class="table">
                     <thead>
@@ -57,7 +72,16 @@
 @endsection
 
 @section('scripts')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/bootstrap-datepicker.min.js"></script>
+    <script src="js/bootstrap-datepicker.ru.min.js"></script>
     <script>
-        // alert(111);
+        //Инициализация календаря
+        $('.input-daterange').datepicker({
+            format: "dd-mm-yyyy",
+            language: "ru",
+            autoclose: true,
+            todayHighlight: true
+        });
     </script>
 @endsection
